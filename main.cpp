@@ -44,5 +44,10 @@ int main(int argc, char** argv) {
 	std::cout << peso  << std::endl;
 	std::cout << altura  << std::endl;
 	std::cout <<"la edad es: " << edad  << std::endl;
+	if( edad<=17){
+		std::cout <<"la persona es menor de edad"<< std::endl;
+	}else{
+		std::cout <<"persona es mayor de edad"<< std::endl;
+	}
 	return 0;
 }
