@@ -8,11 +8,18 @@ Hacer un programa que lea los datos de una persona, los cuales son  nombre, apel
 El programa debe lo siguiente:
  calcular la edad
  verificar si esa persona es mayor de edad
- cuantas personas son de sexo masculino y femenino	
+ cuantas personas son de sexo masculino y femenino
 */
 
+/*
+acumuladores
+contadores
 
+while () estrusturas repetitivas indeterminadas
+for()// estrusturas repetitivas finitas
+do while
 
+*/
 int main(int argc, char** argv) {
 	
 	//declarar las variables
