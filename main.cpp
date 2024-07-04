@@ -1,10 +1,12 @@
 #include <iostream>
-//using namespace std
+#include <string>
+using namespace std;
+//
 /* eduardo nieves */
 
 
 /*
-Hacer un programa que lea los datos de una persona, los cuales son  nombre, apellido, año de nacimiento, sexo, peso, altura.
+Hacer un programa que lea los datos de una persona, los cuales son  nombre, apellido, aï¿½o de nacimiento, sexo, peso, altura.
 El programa debe lo siguiente:
  calcular la edad
  verificar si esa persona es mayor de edad
@@ -20,15 +22,60 @@ for()// estrusturas repetitivas  determinadas o finitas
 do while
 
 */
+
+void imprimirMensaje(string mensaje){
+	cout << mensaje<< endl;
+}
+
+void imprimirString(string mensaje,string dato){
+	cout << mensaje<< dato<< endl;
+}
+
+void imprimirEntero(string mensaje,int dato){
+	cout << mensaje<< dato<< endl;
+}
+
+void imprimirFloat(string mensaje,float dato){
+	cout << mensaje<< dato<< endl;
+}
+
+string leerString(string mensaje){
+	string r="";
+	cout << mensaje;
+	cin >> r;
+	return r;
+}
+
+float leerFloat(string mensaje){
+	float r=0.0;
+	cout << mensaje;
+	cin >> r;
+	return r;
+}
+
+int leerEntero(string mensaje){
+	int r=0;
+	cout << mensaje;
+	cin >> r;
+	return r;
+}
+
+int calcularEdad(int anacimiento){
+	int aactual=2024;
+	return aactual-anacimiento;
+}
+
 int main(int argc, char** argv) {
-	
+
+	imprimirMensaje("----------INICIANDO PROGRAMA----------");
+	imprimirMensaje("--------------------------------------");
 	//declarar las variables
-	std::string nombre="";
-	std::string apellido="";
+	string nombre="";
+	string apellido="";
 	int anacimiento=0;
 	float peso=0.0;
 	float altura=0.0;
-	std::string sexo="";
+	string sexo="";
 	//definimos los contadores del sexo antes del ciclo
 	
 	int resp=1,masculinos=0,femeninos=0; //donde 1 es para indicar si
@@ -36,33 +83,49 @@ int main(int argc, char** argv) {
 		
 		///agregamos el algoritmo que queremos repetir una y otra vez
 		//paso 1 leer los datos
-		std::cout << "Ingrese el nombre:";
-		std::cin >> nombre;
-		std::cout << "Ingrese el apellido:";
-		std::cin >> apellido;
-		std::cout << "Ingrese el año de nacimiento:";
-		std::cin >> anacimiento;
-		std::cout << "Ingrese el peso:";
-		std::cin >> peso;
-		std::cout << "Ingrese la altura:";
-		std::cin >> altura;
-		std::cout << "Ingrese el sexo: m= masculino, f=femenino";
-		std::cin >> sexo;
+		nombre=leerString("Ingrese el nombre: ");
+		apellido=leerString("Ingrese el apellido: ");
+		anacimiento=leerEntero("Ingrese el a#o de nacimiento: ");
+		peso=leerFloat("Ingrese el peso: ");
+		altura=leerFloat("Ingrese la altura: ");
+		sexo=leerString("Ingrese el sexo: ");
+		
+		/*
+		cout << "Ingrese el nombre:";
+		cin >> nombre;
+		cout << "Ingrese el apellido:";
+		cin >> apellido;
+		
+		cout << "Ingrese el aï¿½o de nacimiento:";
+		cin >> anacimiento;
+		cout << "Ingrese el peso:";
+		cin >> peso;
+		cout << "Ingrese la altura:";
+		cin >> altura;
+		cout << "Ingrese el sexo: m= masculino, f=femenino";
+		cin >> sexo;
+		*/
 		//paso 2 realizacion de los calculos
-		int aactual=2024;
-		int edad=aactual-anacimiento;//para calcular la edad
+		int edad =calcularEdad(anacimiento);//calcula la edad pero con una funcion
+		//int edad=aactual-anacimiento;//para calcular la edad
 		//paso 3 imprimir unitario
-		std::cout << "----------DATOS INGRESADOS----------" << std::endl;
-		std::cout << nombre  << std::endl;
-		std::cout << apellido  << std::endl;
-		std::cout << anacimiento<<std::endl;
-		std::cout << peso  << std::endl;
-		std::cout << altura  << std::endl;
-		std::cout <<"la edad es: " << edad  << std::endl;// salida del calculo de la edad
+		imprimirMensaje("----------DATOS INGRESADOS----------");
+		imprimirString("Nombre: ",nombre);
+		imprimirString("Apellido: ",apellido);
+		imprimirEntero("A#o de Nacimiento: ",anacimiento);
+		/*cout << "----------DATOS INGRESADOS----------" << endl;
+		cout << nombre  << endl;
+		cout << apellido  << endl;
+		cout << anacimiento<<endl;
+		cout << peso  << endl;
+		cout << altura  << endl;
+		cout <<"la edad es: " << edad  << endl;// salida del calculo de la edad
+		*/
 		if( edad<=17){
-			std::cout <<"la persona es menor de edad"<< std::endl;
+			imprimirMensaje("la persona es menor de edad");
 		}else{
-			std::cout <<"la persona es mayor de edad"<< std::endl;
+			imprimirMensaje("la persona es mayor de edad");
+			//cout <<"la persona es mayor de edad"<< endl;
 		}
 		if(sexo=="m"){
 			masculinos=masculinos+1; // expresiones equivalentes => masculinos++; masculinos+=1;
@@ -70,14 +133,16 @@ int main(int argc, char** argv) {
 		if(sexo=="f"){
 			femeninos=femeninos+1; // expresiones equivalentes => femeninos++; femeninos+=1;
 		}
-		
-		std::cout << "¿Desea a registrar otra persona? , Si = 1 y No es en otro caso";
-		std::cin >> resp;	
+		resp=leerEntero("Desea registrar otra persona? Ingrese 1 si es un si, Ingrese otro numero en caso de que no");
+		/*cout << "ï¿½Desea a registrar otra persona? , Si = 1 y No es en otro caso";
+		cin >> resp;	*/
 	}
 	//paso 3 imprimir generales
-			std::cout << "----------CANTIDADES DE PERSONAS POR SEXO----------" << std::endl;
-	std::cout <<"Personas masculinas: "<< masculinos <<std::endl;
-	std::cout <<"Personas femeninas: "<< femeninos << std::endl;
+	imprimirMensaje("----------CANTIDADES DE PERSONAS POR SEXO----------" );
+	imprimirEntero("Personas masculinas: ",masculinos);
+	imprimirEntero("Personas femeninas: ",femeninos);
+	//cout <<"Personas masculinas: "<< masculinos <<endl;
+	//cout <<"Personas femeninas: "<< femeninos << endl;
 	
 	
 	return 0;
